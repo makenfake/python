@@ -44,6 +44,8 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 page '/*.csv', layout: false
 
+set :layout, :default_page_layout
+
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
 
