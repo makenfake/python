@@ -30,21 +30,24 @@ page_class: home
             <strong class="title"><%=recipe.title%></strong>
             &ndash;
             <em class="description"><%=recipe.description%></em>
-
-            <div class="snippets">
-              <% recipe.snippets.each do |snippet| %>
-                <div class="snippet">
-                  <% code(snippet.lang) do %><%=snippet.code%><% end %>
-                  <%- if snippet.stdout %>
-                    <div class="stdout">
-                      <div class="lbl">Output:</div>
-                      <% code("stdout") do %><%=snippet.stdout%><%end%>
-                    </div>
-                  <%- end%>
-                </div>
-
-              <% end %>
-            </div>
+            <% if recipe.example %>
+              <div class="example">
+                <% if recipe.snippets %>
+                  <div class="snippets">
+                    <% recipe.snippets.each do |snippet| %>
+                      <div class="snippet">
+                        <% code(snippet.lang) do %><%=snippet.code%><% end %>
+                        <%- if snippet.stdout %>
+                          <div class="stdout">
+                            <div class="lbl">Output:</div>
+                            <% code("stdout") do %><%=snippet.stdout%><%end%>
+                          </div>
+                        <%- end%>
+                      </div>
+                  </div> <!-- snippets-->
+                <% end %>
+              </div>
+            <% end %>
 
 
           </div>

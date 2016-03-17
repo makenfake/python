@@ -1,8 +1,9 @@
 title: Downloading a binary file via Requests and GET
 description: Use the requests.Response `content` attribute
-snippets:
-  - lang: python
-    code: |
-      import requests
-      resp = requests.get("http://www.example.com/image.jpg")
-      stuff = resp.content
+example:
+  snippets:
+    - lang: python
+      code: |
+        import requests
+        resp = requests.get("http://www.example.com/image.jpg")
+        stuff = resp.content

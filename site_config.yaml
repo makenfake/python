@@ -1,6 +1,6 @@
-title: "The Python Fakebook"
+title: "The Python Fake Book for Making Things"
 description: |
-  A quick recipe list of common Python programming patterns
+  A quick recipe list of common Python programming patterns for data wrangling and creating stuff.
 author: Dan Nguyen
 image_url: https://middlemanapp.com/images/middleman-logo.svg
 baseurl: "http://python.makenfake.com"

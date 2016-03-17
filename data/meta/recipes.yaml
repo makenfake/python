@@ -1,3 +1,25 @@
+administrative:
+  title: "Running, installing, setting up your Python"
+  description: |
+    How to get going with Python
+  stuff:
+    - Installing Anaconda
+    - Installing Pyenv via Homebrew
+    - Running iPython
+    - Running a script from the command line
+    - Entering the Python shell
+    - Exiting the Python shelll
+    - Seeing your Python version
+    - pip install a package
+    - pip list your packages
+
+packages:
+  title: Setting up Python modules
+  stuff:
+    - Importing a Python library
+    - Importing a specific module from a Python library
+    - Aliasing a Python module
+
 remote-transfer:
   title: Downloading and uploading files
   description: |
@@ -18,3 +40,37 @@ url-parsing:
   title: Parsing URLs
   description: |
     Dealing with file paths, domains, etc, and so forth.
+
+
+lists:
+  title: Working with Lists
+  stuff:
+    - initializing a blank list
+    - converting to a list
+    - appending a list
+    - popping from a list
+    - accessing a list
+    - list comprehension
+    - list comprehension with an if statement
+
+dictionaries:
+  title: Working with a dictionaries
+  stuff:
+    - dict comprehension
+    - copying a dictionary
+
+collections:
+    - sublistting
+
+
+sorting:
+  - using sorted
+
+
+conditional-branches:
+  - testing for None
+  - if/else
+  - double-if-statement
+  - if/else/elif
+  - continue
+  - if
