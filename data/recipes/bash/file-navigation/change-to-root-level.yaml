@@ -1,0 +1,10 @@
+title: Change to a root level directory
+description: |
+  For the most part, the only root-level directory you want to mess with is `/tmp`
+lede:
+  kind: snippet
+  lang: bash
+  description: |
+    A leading forward-slash will always take you to the absolute root of the file system.
+  code: |
+    cd /tmp

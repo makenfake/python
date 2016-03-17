@@ -1,0 +1,8 @@
+title: Download a file with curl into a local file
+lede:
+  kind: snippet
+  lang: bash
+  code: |
+    curl 'http://www.example.com' > /tmp/somenewfile.whatever
+  description: |
+    Use the `>` operator to direct the contents of the downloaded file into a new filename (and destroy whatever exists at that filename).

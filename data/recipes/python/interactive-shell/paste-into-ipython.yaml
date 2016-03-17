@@ -1,0 +1,10 @@
+title: Paste code directly into iPython
+description: |
+  Pasting complicated blocks of code into iPython may cause indentation errors. So use the appropriate magic command.
+lede:
+  description: |
+    The magic command `%paste` will paste contents directly from the clipboard into the iPython shell, preserving all relative indentation.
+  kind: snippet
+  lang: python
+  code: |
+    %paste

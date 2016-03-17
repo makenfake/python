@@ -7,8 +7,6 @@ pre.highlight{
 }
 
 
-pre.highlight.plaintext{
-  code{
+pre.highlight.plaintext code, pre.repl .plaintext{
     color: $gray-light;
-  }
 }

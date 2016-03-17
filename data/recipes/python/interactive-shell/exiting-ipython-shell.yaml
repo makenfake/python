@@ -1,0 +1,9 @@
+title: Exiting the iPython shell
+description: TK
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    Just run the `exit()` command. You can also hit __Ctrl-D__, which is the standard shell keyboard shortcut to exit out of any program.
+  code: |
+    exit()

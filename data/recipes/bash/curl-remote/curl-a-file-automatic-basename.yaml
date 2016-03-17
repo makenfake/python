@@ -1,0 +1,11 @@
+title: curl a file into a local file named according to the URL's basename
+description: |
+  For when you're too lazy to come up with a filename yourself.
+lede:
+  kind: snippet
+  lang: bash
+  description: |
+    Use the `-O` flag. If the URL has no path or basename, an error will be raised.
+  code: |
+    curl -O 'http://www.example.com/stuff'
+

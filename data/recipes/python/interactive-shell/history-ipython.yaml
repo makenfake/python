@@ -1,0 +1,10 @@
+title: Getting a history of iPython commands
+
+
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    Use iPython's magic function `%history`
+  code: |
+    %history

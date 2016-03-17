@@ -49,7 +49,7 @@ page '/*.csv', layout: false
 set :layout, :default_page_layout
 
 THE_BOOK = []
-config[:the_book] = THE_BOOK
+config[:the_books] = THE_BOOK
 
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
@@ -64,6 +64,7 @@ data.recipes.each_pair do |book_slug, book_data|
     book_meta.chapters = []
     book_meta.slug = book_slug
     book_meta.url = "/books/#{book_slug}"
+    THE_BOOK << book_meta
 
     book_chapters = book_data.reject{|(k, v)| k == '_meta'}
 
@@ -73,7 +74,6 @@ data.recipes.each_pair do |book_slug, book_data|
       chapter_meta.slug = "chapter-#{chapter_slug}"
       chapter_meta.url = "#{book_meta[:url]}##{chapter_meta[:slug]}"
       book_meta.chapters << chapter_meta
-      puts("Chapter meta: #{chapter_meta}")
 
       # add the recipes
       recipes.reject{|(k,v)| k == '_meta'}.each_pair do |recipe_slug, recipe|
@@ -83,7 +83,6 @@ data.recipes.each_pair do |book_slug, book_data|
         recipe.book = book_meta
         recipe.chapter = chapter_meta
         recipe_content = Recipe.new(recipe)
-        THE_BOOK << recipe_content
         book_meta.recipes << recipe_content
         chapter_meta.recipes << recipe_content
         proxy(recipe.url,

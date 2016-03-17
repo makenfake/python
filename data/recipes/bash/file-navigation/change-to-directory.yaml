@@ -1,0 +1,6 @@
+title: Change to a directory path
+lede:
+  lang: shell
+  kind: snippet
+  code: |
+    cd path/to/directory

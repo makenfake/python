@@ -1,0 +1,12 @@
+title: List files in a directory
+lede:
+  kind: snippet
+  lang: bash
+  description: Use the `ls` command to print to screen a list of files in a given directory
+  code: |
+    ls
+  stdout: |
+    README.md
+    file1.txt
+    file2.txt
+    Documents

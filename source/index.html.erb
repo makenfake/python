@@ -11,74 +11,8 @@ page_class: home
 <section class="sec">
 <h1>Da Book</h1>
 
-<% config[:the_book].each do |r| %>
+<% config[:the_books].each do |r| %>
   <div><%=link_to r.title, r.url %></div>
 <% end %>
 </section>
 
-
-<hr></hr>
-
-<section class="sec">
-<h1>Books</h1>
-
-<p>Manual enumeration</p>
-
-<% data.recipes.each_pair do |book_slug, book_chapters| %>
-  <section class="book">
-    <%- book_meta = data.meta[book_slug]
-        book_chapters_meta = book_meta.chapters
-    %>
-
-    <div class="book-meta">
-      <h3 class="book-title"><%= book_meta.title %></h3>
-      <div class="book-description"><%= book_meta.description %></div>
-    </div>
-
-
-
-    <div class="chapters">
-      <% book_chapters.each_pair do |chapter_slug, chapter_recipes| %>
-        <%- chapter_meta = book_chapters_meta[chapter_slug] %>
-        <div class="chapter">
-            <h5 class="chapter-title">
-              Chapter: <%= chapter_meta.title %>
-            </h5>
-            <div class="chapter-description">
-              <%=chapter_meta.description %>
-            </div>
-
-
-
-      <ul class="list list-unstyled recipes-listing">
-          <% chapter_recipes.each_pair do |recipe_slug, recipe| %>
-            <li class="recipe">
-              <div class="meta">
-                <strong class="title"><%=recipe.title%></strong>
-                &ndash;
-                <em class="description"><%=recipe.description%></em>
-              </div>
-              <% if recipe.lede %>
-                <div class="lede content-piece">
-                  <% if recipe.lede.is_a?(Snippet) %>
-                    <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
-                  <% end %>
-                </div> <!-- lede -->
-              <% end %>
-
-            </li>
-          <% end %>
-        </ul>
-
-
-
-
-        </div>
-      <% end %>
-    </div>
-  </section> <!-- book -->
-
-<% end %>
-
-
-</section>

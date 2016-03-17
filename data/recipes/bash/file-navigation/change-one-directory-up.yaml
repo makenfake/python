@@ -1,0 +1,14 @@
+title: Change to one directory up
+lede:
+  lang: shell
+  kind: snippet
+  description: |
+    Two consecutive periods -- `..` -- is interpreted as the directory one level up.
+  code: |
+    cd ..
+
+
+content:
+  - kind: text
+    text: |
+      Whats up doc
