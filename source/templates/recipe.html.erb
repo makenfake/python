@@ -1,0 +1,9 @@
+---
+layout: /layouts/default_page_layout
+---
+
+
+<% if recipe.lede.is_a?(Snippet) %>
+    <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
+
+<% end %>

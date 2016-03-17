@@ -2,6 +2,7 @@
 require "lib/custom_helpers"
 require "lib/general_helpers"
 require "lib/site_config"
+require 'lib/content_stuff'
 helpers GeneralHelpers
 config[:site_config] = SiteConfig.load_site_config("./site_config.yaml")
 
@@ -47,12 +48,38 @@ page '/*.csv', layout: false
 
 set :layout, :default_page_layout
 
-# With alternative layout
-# page "/path/to/file.html", layout: :otherlayout
+THE_BOOK = []
+config[:the_book] = THE_BOOK
+
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
 #  which_fake_page: "Rendering a fake page with a local variable" }
+
+
+data.recipes.each_pair do |book_slug, book_chapters|
+# todo: make URL part of each recipe
+
+    book_chapters.each_pair do |chapter_slug, recipes|
+      recipes.each_pair do |recipe_slug, recipe|
+        the_url = "/books/#{book_slug}/#{recipe_slug}"
+        recipe.url = the_url
+        recipe.book_slug = book_slug
+        recipe.chapter_slug = chapter_slug
+        recipe_content = ContentCollection.new(recipe)
+        THE_BOOK << recipe_content
+        proxy(recipe.url,
+              "/templates/recipe.html",
+              :locals => {:dynamic_data_object => recipe_content,
+                          :recipe => recipe_content},
+              :ignore => true)
+      end
+    end
+end
+
+
+
+
 
 activate :s3_sync do |s3_sync|
   s3_sync.delete                     = false

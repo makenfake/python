@@ -1,0 +1,10 @@
+title: Use Requests to serialize the parameters in a HTTP request
+description: Provide a dictionary with the appropriate key-value pairs to the `params` argument
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    myparams = {"api_key": "xyzabc", "text": "100 Broadway, New York, NY"}
+    endpoint_url = "https://search.mapzen.com/v1/search"
+    resp = requests.get(endpoint_url, params=myparams)

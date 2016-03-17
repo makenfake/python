@@ -1,0 +1,9 @@
+title: Writing to a text file
+description: 'By default, files are opened as text'
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    my_txt = "Hello world"
+    with open("myfilename.txt", "w") as outfile:
+        outfile.write(my_txt)

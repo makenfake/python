@@ -1,0 +1,10 @@
+title: Use Requests to deserialize a JSON file
+description: Call the `json()` method of the requests.Response
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    url = 'http://stash.compciv.org/samples/single-tweet.json'
+    resp = requests.get(url)
+    data = resp.json()

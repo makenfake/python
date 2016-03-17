@@ -1,0 +1,14 @@
+title: Opening the Chrome Web inspector
+example:
+  - type: slide
+    image_url: /files/images/example.jpg
+    text: |
+      Some text about this slide
+
+
+content:
+  - type: slide
+    title: From the Popup menu
+    image_url: /files/images/something.jpg
+    text: |
+      Stuff about this caption

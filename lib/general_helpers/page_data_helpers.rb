@@ -5,12 +5,16 @@ module GeneralHelpers
   # should also deal with dynamic pages...
   module PageDataHelpers
 
+    def page_data_attr(attr_name)
+      _dynamic_page_data[attr_name] || _current_page_data[attr_name]
+    end
+
     # for dynamic pages, we expect the option :dynamic_page has been set
     # (holdover from middleman-onthestreet gem)
     def _dynamic_page_data
-      opts = current_page.metadata[:options]
-
-      return opts[:dynamic_page] || ::Hashie::Mash.new()
+      local_opts = current_page.metadata[:locals]
+      local_opts[:dynamic_data_object] ||= Hashie::Mash.new
+      return local_opts[:dynamic_data_object]
     end
 
     def _current_page_data
@@ -18,15 +22,15 @@ module GeneralHelpers
     end
 
     def page_author
-      _current_page_data.author || _dynamic_page_data.author
+      page_data_attr(:author)
     end
 
     def page_description
-      _current_page_data.description || _dynamic_page_data.description
+      page_data_attr(:description)
     end
 
     def page_class
-      if (cp = _current_page_data.page_class)
+      if (cp = page_data_attr(:page_class))
         return "page page-#{cp}"
       else
         return "page"
@@ -34,12 +38,12 @@ module GeneralHelpers
     end
 
     def page_image_url
-      _current_page_data.image_url || _dynamic_page_data.image_url
+      page_data_attr(:image_url)
     end
 
     def page_has_header_class
-      if _current_page_data.has_header == false ||
-         _dynamic_page_data.has_header == false
+      hh = page_data_attr(:has_header)
+      if hh == false
          return "no-header"
       else
         return "has-header"
@@ -47,15 +51,15 @@ module GeneralHelpers
     end
 
     def page_summary
-      _current_page_data.summary
+      page_data_attr(:summary)
     end
 
     def page_url
-      current_page.url
+      page_data_attr(:url) || 'http://www.example.com/'
     end
 
     def page_title
-      _current_page_data.title || _dynamic_page_data.title
+      page_data_attr(:title)
     end
 
 

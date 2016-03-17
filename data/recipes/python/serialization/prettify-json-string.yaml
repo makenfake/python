@@ -1,0 +1,23 @@
+title: Converting data to prettified JSON text string
+description: Use json.dumps and set the `indent` argument
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import json
+    data = {'status': 'OK'}
+    data['stuff'] = {'apples': 'crunchy!', 'oranges': [42, 999, -1.5]}
+    json.dumps(data, indent=2)
+  stdout: |
+    {
+      "status": "OK",
+      "stuff": {
+        "oranges": [
+          42,
+          999,
+          -1.5
+        ],
+        "apples": "crunchy!"
+      }
+    }
+

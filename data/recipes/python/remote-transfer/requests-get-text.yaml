@@ -1,0 +1,9 @@
+title: Downloading a text file via Requests and GET
+description: Use the requests.Response `text` attribute
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    resp = requests.get("http://www.example.com")
+    stuff = resp.text

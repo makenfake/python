@@ -1,5 +1,5 @@
 ---
-title: Python Fakebook Homepage
+title: The Make n Fakebook Homepage
 layout: /layouts/pages/homepage/homepage-layout
 has_header: false
 page_class: home
@@ -8,64 +8,76 @@ page_class: home
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi architecto cupiditate rerum, eius possimus distinctio dicta fuga eum similique magni blanditiis necessitatibus officia, quasi natus minima, voluptas officiis neque sapiente.
 </p>
 
+<section class="sec">
+<h1>Da Book</h1>
 
-
-
-<h1>Recipes</h1>
-
-<% data.recipes.each_pair do |cat_slug, cat_recipes| %>
-  <section class="sec category" id="category-<%=cat_slug%>">
-    <% recipes_category = data.meta.recipes[cat_slug] %>
-    <h3 class="category-title">
-      <%= recipes_category.title %>
-    </h3>
-    <div class="category-description">
-      <%= recipes_category.description %>
-    </div>
-
-    <ul class="list list-unstyled recipes-listing">
-      <% cat_recipes.each_pair do |recipe_slug, recipe| %>
-        <li class="recipe">
-          <div class="meta">
-            <strong class="title"><%=recipe.title%></strong>
-            &ndash;
-            <em class="description"><%=recipe.description%></em>
-            <% if recipe.example %>
-              <div class="example">
-                <% if recipe.snippets %>
-                  <div class="snippets">
-                    <% recipe.snippets.each do |snippet| %>
-                      <div class="snippet">
-                        <% code(snippet.lang) do %><%=snippet.code%><% end %>
-                        <%- if snippet.stdout %>
-                          <div class="stdout">
-                            <div class="lbl">Output:</div>
-                            <% code("stdout") do %><%=snippet.stdout%><%end%>
-                          </div>
-                        <%- end%>
-                      </div>
-                  </div> <!-- snippets-->
-                <% end %>
-              </div>
-            <% end %>
-
-
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </section>
+<% config[:the_book].each do |r| %>
+  <div><%=link_to r.title, r.url %></div>
 <% end %>
-
-
+</section>
 
 
 
 <section class="sec">
+<h1>Books</h1>
 
-<h1>Metameta</h1>
+<p>Manual enumeration</p>
+
+<% data.recipes.each_pair do |book_slug, book_chapters| %>
+  <section class="book">
+    <%- book_meta = data.meta[book_slug]
+        book_chapters_meta = book_meta.chapters
+    %>
+
+    <div class="book-meta">
+      <h3 class="book-title"><%= book_meta.title %></h3>
+      <div class="book-description"><%= book_meta.description %></div>
+    </div>
 
 
-<%= data.meta.recipes["serialization"].title %>
+
+    <div class="chapters">
+      <% book_chapters.each_pair do |chapter_slug, chapter_recipes| %>
+        <%- chapter_meta = book_chapters_meta[chapter_slug] %>
+        <div class="chapter">
+            <h5 class="chapter-title">
+              Chapter: <%= chapter_meta.title %>
+            </h5>
+            <div class="chapter-description">
+              <%=chapter_meta.description %>
+            </div>
+
+
+
+      <ul class="list list-unstyled recipes-listing">
+          <% chapter_recipes.each_pair do |recipe_slug, recipe| %>
+            <li class="recipe">
+              <div class="meta">
+                <strong class="title"><%=recipe.title%></strong>
+                &ndash;
+                <em class="description"><%=recipe.description%></em>
+              </div>
+              <% if recipe.lede %>
+                <div class="lede content-piece">
+                  <% if recipe.lede.is_a?(Snippet) %>
+                    <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
+                  <% end %>
+                </div> <!-- lede -->
+              <% end %>
+
+            </li>
+          <% end %>
+        </ul>
+
+
+
+
+        </div>
+      <% end %>
+    </div>
+  </section> <!-- book -->
+
+<% end %>
+
 
 </section>
