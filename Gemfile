@@ -20,3 +20,5 @@ gem "middleman-syntax"
 gem 'middleman-s3_sync', '>= 4.0.2'
 gem "middleman-sprockets", "~> 4.0.0.rc" # take this out in favor of webpack...
 gem 'middleman-pry'
+gem 'hashie'
+gem 'addressable'

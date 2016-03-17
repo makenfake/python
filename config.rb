@@ -1,3 +1,10 @@
+# Special config
+require "lib/custom_helpers"
+require "lib/site_config"
+helpers CustomHelpers
+config[:site_config] = SiteConfig.load_site_config("./site_config.yaml")
+
+
 
 # General configuration
 
