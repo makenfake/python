@@ -1,6 +1,6 @@
 require 'hashie'
 
-module CustomHelpers
+module GeneralHelpers
   # helpers for common page attributes
   # should also deal with dynamic pages...
   module PageDataHelpers

@@ -1,6 +1,6 @@
 require 'addressable/uri'
 
-module CustomHelpers
+module GeneralHelpers
   # helpers for common meta attributes
   module MetadataHelpers
 

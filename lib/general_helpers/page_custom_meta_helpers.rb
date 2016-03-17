@@ -1,4 +1,4 @@
-# module CustomHelpers
+# module GeneralHelpers
 #   module PageCustomMetaHelpers
 
 #     def page_sequence

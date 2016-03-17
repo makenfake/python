@@ -1,7 +1,6 @@
 require 'addressable'
-module CustomHelpers
+module GeneralHelpers
   module MarkupHelpers
-
     # meh, minimum configurability is fine
     def aside_wrap(opts = {}, &block)
       concat_content content_tag(:aside, markdownify(capture_html(&block)), opts)

@@ -1,4 +1,4 @@
-module CustomHelpers
+module GeneralHelpers
   # helpers for common meta attributes
   module SiteConfigHelpers
     def site_config
