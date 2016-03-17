@@ -7,3 +7,14 @@ serialization:
   title: Serializing and deserializing data
   description: |
     Turning data into text, and text into data.
+
+input-output:
+  title: Reading and writing files and streams
+  description: |
+    How to read from and write to files of text and binary
+
+
+url-parsing:
+  title: Parsing URLs
+  description: |
+    Dealing with file paths, domains, etc, and so forth.

@@ -1,11 +1,11 @@
 title: Writing bytes to a binary file
 description: 'Provide wb as the argument'
 snippets:
-    lang: python
-    code: |
-      my_bytes = b'12345'
-      with open("myfilename.data", "wb") as outfile:
-          outfile.write(my_bytes)
+    - lang: python
+      code: |
+        my_bytes = b'12345'
+        with open("myfilename.data", "wb") as outfile:
+            outfile.write(my_bytes)
 
 notes:
   - "The filename and its extension are irrelevant"
