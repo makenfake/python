@@ -1,0 +1,68 @@
+---
+title: Python Fakebook Homepage
+layout: /layouts/pages/homepage/homepage-layout
+has_header: false
+page_class: home
+---
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi architecto cupiditate rerum, eius possimus distinctio dicta fuga eum similique magni blanditiis necessitatibus officia, quasi natus minima, voluptas officiis neque sapiente.
+</p>
+
+
+
+
+<h1>Recipes</h1>
+
+<% data.recipes.each_pair do |cat_slug, cat_recipes| %>
+  <section class="sec category" id="category-<%=cat_slug%>">
+    <% recipes_category = data.meta.recipes[cat_slug] %>
+    <h3 class="category-title">
+      <%= recipes_category.title %>
+    </h3>
+    <div class="category-description">
+      <%= recipes_category.description %>
+    </div>
+
+    <ul class="list list-unstyled recipes-listing">
+      <% cat_recipes.each_pair do |recipe_slug, recipe| %>
+        <li class="recipe">
+          <div class="meta">
+            <strong class="title"><%=recipe.title%></strong>
+            &ndash;
+            <em class="description"><%=recipe.description%></em>
+
+            <div class="snippets">
+              <% recipe.snippets.each do |snippet| %>
+                <div class="snippet">
+                  <% code(snippet.lang) do %><%=snippet.code%><% end %>
+                  <%- if snippet.stdout %>
+                    <div class="stdout">
+                      <div class="lbl">Output:</div>
+                      <% code("stdout") do %><%=snippet.stdout%><%end%>
+                    </div>
+                  <%- end%>
+                </div>
+
+              <% end %>
+            </div>
+
+
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
+
+
+
+<section class="sec">
+
+<h1>Metameta</h1>
+
+
+<%= data.meta.recipes["serialization"].title %>
+
+</section>

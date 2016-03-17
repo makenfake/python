@@ -1,0 +1,9 @@
+remote-transfer:
+  title: Downloading and uploading files
+  description: |
+    Fetching files across the Internet and remote systems.
+
+serialization:
+  title: Serializing and deserializing data
+  description: |
+    Turning data into text, and text into data.
