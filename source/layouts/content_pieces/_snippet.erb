@@ -1,9 +1,11 @@
 <div class="snippet">
   <% code(snippet.lang) do %><%=snippet.code%><% end %>
-  <%- if snippet.stdout %>
+
+
+  <%- if snippet.stdout -%>
     <div class="stdout">
       <div class="lbl">Output:</div>
       <% code("stdout") do %><%=snippet.stdout%><%end%>
     </div>
-  <%- end%>
+  <%- end -%>
 </div>

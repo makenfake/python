@@ -17,6 +17,3 @@ module ContentStuff
     end
   end
 end
-
-
-

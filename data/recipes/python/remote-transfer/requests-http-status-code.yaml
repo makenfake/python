@@ -1,0 +1,12 @@
+title: Check the status code of a URL with the Requests library
+description: |
+  Check to see if a URL is alive or not, or if it's a redirect, with the requests.Response's `status_code` attribute.
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    resp = requests.head('http://www.example.com')
+    resp.status_code
+  stdout: |
+    200

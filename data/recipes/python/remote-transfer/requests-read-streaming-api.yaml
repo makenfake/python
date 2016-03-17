@@ -1,0 +1,23 @@
+title: Read streaming API line by line with Requests
+description: TKTK
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+
+    r = requests.get('http://httpbin.org/stream/20', stream=True)
+    for line in r.iter_lines():
+        if line:
+            print(line)
+
+  stdout: |
+    b'{"url": "http://httpbin.org/stream/20", "headers": {"Host": "httpbin.org", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "User-Agent": "python-requests/2.9.0"}, "args": {}, "id": 0, "origin": "171.66.208.10"}'
+    b'{"url": "http://httpbin.org/stream/20", "headers": {"Host": "httpbin.org", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "User-Agent": "python-requests/2.9.0"}, "args": {}, "id": 1, "origin": "171.66.208.10"}'
+    b'{"url": "http://httpbin.org/stream/20", "headers": {"Host": "httpbin.org", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "User-Agent": "python-requests/2.9.0"}, "args": {}, "id": 2, "origin": "171.66.208.10"}'
+    b'{"url": "http://httpbin.org/stream/20", "headers": {"Host": "httpbin.org", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "User-Agent": "python-requests/2.9.0"}, "args": {}, "id": 3, "origin": "171.66.208.10"}'
+
+
+  references:
+    - url: http://docs.python-requests.org/en/master/user/advanced/#streaming-requests
+      title: Requests Advanced Usage - Streaming Requests

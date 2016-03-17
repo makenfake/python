@@ -8,7 +8,6 @@ module ContentStuff
       @code = obj.code
       @kind = :snippet #??
       @stdout = obj.stdout
-      puts @code
     end
   end
 end

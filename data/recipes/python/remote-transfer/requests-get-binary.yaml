@@ -1,5 +1,5 @@
 title: Downloading a binary file via Requests and GET
-description: Use the requests.Response `content` attribute
+description: Use the requests.Response `content` attribute to access the body of a response as bytes
 lede:
   kind: snippet
   lang: python
@@ -7,3 +7,8 @@ lede:
     import requests
     resp = requests.get("http://www.example.com/image.jpg")
     stuff = resp.content
+
+
+references:
+  - url: http://docs.python-requests.org/en/master/user/quickstart/#binary-response-content
+    title: Requests Quickstart - Binary Response Content

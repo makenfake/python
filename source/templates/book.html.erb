@@ -1,3 +1,37 @@
 ---
 layout: /layouts/default_page_layout
 ---
+
+
+<section class="sec">
+  <h1>Chapters</h1>
+  <ul class="list list-unstyled">
+  <% book.chapters.each do |chapter| %>
+    <li class="sec">
+      <h4 id="<%=chapter.slug%>"><%= link_to chapter.title, chapter.url %></h4>
+      <ul class="list list-unstyled recipes-listing">
+        <% chapter.recipes.each do |recipe| %>
+          <li class="recipe">
+            <div class="meta">
+              <strong class="title"><%=link_to recipe.title, recipe.url %></strong>
+              &ndash;
+              <em class="description"><%=recipe.description%></em>
+            </div>
+            <% if recipe.lede %>
+              <div class="lede content-piece">
+                <% if recipe.lede.is_a?(Snippet) %>
+                  <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
+                <% end %>
+              </div> <!-- lede -->
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+
+
+  </ul>
+
+</section>
+

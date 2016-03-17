@@ -1,0 +1,12 @@
+title: Find the version of Python from your system shell/command-line
+description: |
+  Run the Python interpreter with the `--version` to get a quick printout of which Python you're running.
+lede:
+  kind: snippet
+  lang: shell
+  description: |
+    Run `python` with the `--version` flag.
+  code: |
+    python --version
+  stdout: |
+    Python 3.5.0 :: Anaconda 2.4.0 (x86_64)

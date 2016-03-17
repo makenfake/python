@@ -57,17 +57,35 @@ config[:the_book] = THE_BOOK
 #  which_fake_page: "Rendering a fake page with a local variable" }
 
 
-data.recipes.each_pair do |book_slug, book_chapters|
+data.recipes.each_pair do |book_slug, book_data|
 # todo: make URL part of each recipe
+    book_meta = book_data[:_meta]
+    book_meta.recipes = []
+    book_meta.chapters = []
+    book_meta.slug = book_slug
+    book_meta.url = "/books/#{book_slug}"
+
+    book_chapters = book_data.reject{|(k, v)| k == '_meta'}
 
     book_chapters.each_pair do |chapter_slug, recipes|
-      recipes.each_pair do |recipe_slug, recipe|
+      chapter_meta = recipes['_meta'] || Hashie::Mash.new({:title => chapter_slug}) # TK take this out
+      chapter_meta[:recipes] = [] # OK to have double reference?
+      chapter_meta.slug = "chapter-#{chapter_slug}"
+      chapter_meta.url = "#{book_meta[:url]}##{chapter_meta[:slug]}"
+      book_meta.chapters << chapter_meta
+      puts("Chapter meta: #{chapter_meta}")
+
+      # add the recipes
+      recipes.reject{|(k,v)| k == '_meta'}.each_pair do |recipe_slug, recipe|
         the_url = "/books/#{book_slug}/#{recipe_slug}"
         recipe.url = the_url
-        recipe.book_slug = book_slug
-        recipe.chapter_slug = chapter_slug
-        recipe_content = ContentCollection.new(recipe)
+        recipe.slug = recipe_slug
+        recipe.book = book_meta
+        recipe.chapter = chapter_meta
+        recipe_content = Recipe.new(recipe)
         THE_BOOK << recipe_content
+        book_meta.recipes << recipe_content
+        chapter_meta.recipes << recipe_content
         proxy(recipe.url,
               "/templates/recipe.html",
               :locals => {:dynamic_data_object => recipe_content,
@@ -75,6 +93,12 @@ data.recipes.each_pair do |book_slug, book_chapters|
               :ignore => true)
       end
     end
+
+    proxy book_meta.url, '/templates/book.html',
+      :locals => {:dynamic_data_object => book_meta, :book => book_meta},
+      :ignore => true
+
+
 end
 
 

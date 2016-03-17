@@ -1,5 +1,4 @@
-title: The Book of Python
-description: Python stuff and recipes on how to data munge and whatever
+
 chapters:
   administrative:
     title: "Running, installing, setting up your Python"
@@ -23,26 +22,9 @@ chapters:
       - Importing a specific module from a Python library
       - Aliasing a Python module
 
-  remote-transfer:
-    title: Downloading and uploading files
-    description: |
-      Fetching files across the Internet and remote systems.
-
-  serialization:
-    title: Serializing and deserializing data
-    description: |
-      Turning data into text, and text into data.
-
-  input-output:
-    title: Reading and writing files and streams
-    description: |
-      How to read from and write to files of text and binary
 
 
-  url-parsing:
-    title: Parsing URLs
-    description: |
-      Dealing with file paths, domains, etc, and so forth.
+
 
 
   lists:

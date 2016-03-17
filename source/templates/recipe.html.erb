@@ -2,8 +2,19 @@
 layout: /layouts/default_page_layout
 ---
 
+<% if recipe.book %>
+  <section class="sec">
+
+    <div>Book: <%=link_to recipe.book.title, recipe.book.url %></div>
+    <div>Chapter: <%=link_to recipe.chapter.title, recipe.chapter.url %> </div>
+
+  </section>
+<% end %>
+
+
+<section class="sec lede">
 
 <% if recipe.lede.is_a?(Snippet) %>
     <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
-
 <% end %>
+</section>

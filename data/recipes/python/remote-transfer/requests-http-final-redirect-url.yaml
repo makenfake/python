@@ -1,0 +1,12 @@
+title: Check to see where a URL actually redirects to with Requests
+description: |
+  Where does a URL redirect to? Use the `requests.head()` method and specify `True` to its `allow_redirects` argument
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    resp = requests.head('http://bit.ly/woz', allow_redirects=True)
+    resp.url
+  stdout: |
+    'https://twitter.com/account/suspended'

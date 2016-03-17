@@ -1,0 +1,16 @@
+title: Download a file and write to disk as a stream via Requests
+description: For when you have a massive file
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    import requests
+    resp = requests.get("https://www.example.com/massivefile", stream=True)
+    with open("myfilename.stuff", 'wb') as fw:
+        for chunk in resp.iter_content(100000):
+            fw.write(chunk)
+
+
+references:
+  - url: http://docs.python-requests.org/en/master/user/quickstart/#raw-response-content
+    title: Requests Quickstart - Raw Response Content

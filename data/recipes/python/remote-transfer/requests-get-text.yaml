@@ -7,3 +7,7 @@ lede:
     import requests
     resp = requests.get("http://www.example.com")
     stuff = resp.text
+
+references:
+  - url: http://docs.python-requests.org/en/master/user/quickstart/#response-content
+    title: Requests Quickstart - Response Content

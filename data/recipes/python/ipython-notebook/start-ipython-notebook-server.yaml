@@ -1,0 +1,15 @@
+title: How to run an iPython notebook server locally
+description: |
+  TK
+lede:
+  kind: snippet
+  description: |
+    Add `notebook` as an argument when running `ipython`
+  lang: shell
+  code: |
+    ipython notebook
+  stdout: |
+    [I 08:57:44.918 NotebookApp] Serving notebooks from local directory: /Users/dan/stanford/2015/compjour/compjour-site/source/notebooks
+    [I 08:57:44.919 NotebookApp] 0 active kernels
+    [I 08:57:44.919 NotebookApp] The IPython Notebook is running at: http://localhost:8888/
+    [I 08:57:44.919 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).

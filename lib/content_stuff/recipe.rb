@@ -1,12 +1,12 @@
 require 'lib/content_stuff/content_piece'
 require 'lib/content_stuff/content_piece_factory'
 module ContentStuff
-  class ContentCollection < ContentPiece
-    attr_reader :lede
+  class Recipe < ContentCollection
+    attr_reader :chapter, :book
     def initialize(obj)
       super(obj)
-      @lede = ContentPieceFactory(obj.lede)
-#      puts("Lede is a: #{@lede.class}")
+      @chapter = obj.chapter
+      @book = obj.book
     end
   end
 end

@@ -1,0 +1,14 @@
+title: Get information about the Python version at run-time
+description: |
+  Sometimes we need to know at run-time, or while in the interactive Python shell, what Python version is actually being used.
+
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    Use the `sys.version` attribute.
+  code: |
+    import sys
+    sys.version
+  stdout: |
+    '3.5.0 |Anaconda 2.4.0 (x86_64)| (default, Oct 20 2015, 14:39:26) \n[GCC 4.2.1 (Apple Inc. build 5577)]'

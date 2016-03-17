@@ -2,6 +2,8 @@ require "lib/content_stuff/content_piece"
 require "lib/content_stuff/content_collection"
 require "lib/content_stuff/content_piece_factory"
 
+require "lib/content_stuff/recipe"
+
 module ContentStuff
 
 

@@ -1,0 +1,11 @@
+title: Check the HEAD response from a server via Requests
+description: |
+  Sometimes we don't need to download the actual body of a response, but just its metadata, such as its status code and where it redirects to.
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    resp = requests.head("http://nytimes.com")
+    resp.headers
+  stdout: |
+    {'X-Frame-Options': 'DENY', 'Server': 'Varnish', 'Date': 'Thu, 17 Mar 2016 15:32:29 GMT', 'X-PageType': 'legacy-override', 'Accept-Ranges': 'bytes', 'Location': 'http://www.nytimes.com/', 'Age': '0', 'nnCoection': 'close', 'X-API-Version': '5-4', 'Set-Cookie': 'RMID=007f01015f8756eace0d0006;Path=/; Domain=.nytimes.com;Expires=Fri, 17 Mar 2017 15:32:29 UTC'}
