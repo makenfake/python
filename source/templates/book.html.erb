@@ -20,7 +20,7 @@ layout: /layouts/default_page_layout
             <% if recipe.lede %>
               <div class="lede content-piece">
                 <% if recipe.lede.is_a?(Snippet) %>
-                  <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
+                  <%=partial 'layouts/content_pieces/briefs/snippet', locals: {snippet: recipe.lede} %>
                 <% end %>
               </div> <!-- lede -->
             <% end %>

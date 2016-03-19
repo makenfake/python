@@ -1,0 +1,16 @@
+title: Use `with` statement to open and guarantee the closing of a file
+description: |
+  It's good practice to close files after opening them. The `with` statement gurantees that a file handle will be closed even if an error happens before then.
+
+
+
+code: |
+  with open("somefile.txt", 'r') as rf:
+      mytext = rf.read()
+
+
+
+references:
+  - url: http://book.pythontips.com/en/latest/open_function.html
+  - url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+  - url: http://docs.quantifiedcode.com/python-code-patterns/maintainability/not_using_with_to_open_files.html

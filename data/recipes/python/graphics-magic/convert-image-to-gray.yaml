@@ -1,0 +1,48 @@
+title: Convert image to grayscale
+lede:
+  kind: snippet
+  lang: python
+  code: |
+    from PIL import Image
+    img = Image.open("cat-example.jpg")
+    grayimg = img.convert('L')
+    grayimg.save("cat-example-gray.jpg")
+  text: |
+
+    Starting image:
+
+    ![img cat](/files/images/examples/cat-example.jpg)
+
+
+    Result image:
+
+    ![img cat](/files/images/examples/cat-example-gray.jpg)
+
+
+content:
+  - title: Convert to pure black and white
+    kind: snippet
+    lang: python
+    description: Pass `'1'` as the argument to `convert()` to force an image into bi-level mode.
+    code: |
+      bwimg = img.convert('1')
+
+    text: |
+        ![img cat](/files/images/examples/cat-example-bi-bw.jpg)
+
+
+  - title: Result of converting an image to bi-level black and white
+    description: Not pretty kittyTKTK
+    kind: image
+    src: /files/images/examples/cat-example-bi-bw.jpg
+
+  - title: 'OSError: cannot write mode LA as JPEG'
+    description: Save it in PNG format.
+
+
+
+references:
+  - url: http://stackoverflow.com/questions/12201577/how-can-i-convert-an-rgb-image-into-grayscale-in-python
+    title: How can I convert an RGB image into grayscale in Python?
+  - url: https://pillow.readthedocs.org/en/3.0.0/reference/Image.html
+    title: Pillow (PIL Fork) - Image Module

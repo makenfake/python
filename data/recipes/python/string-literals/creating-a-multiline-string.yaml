@@ -1,0 +1,11 @@
+title: Creating a multi-line string
+lede:
+  kind: snippet
+  lang: python
+  description: Enclose it in triple-quotation marks.
+  code: |
+    """     this is
+       a multiline string
+          "ladee" dadahdadh
+                  zzz"""
+

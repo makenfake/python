@@ -1,0 +1,8 @@
+title: Deserialize a multi-line string of CSV text
+description: Split the string by newline characters before passing it into `DictReader()`
+
+
+
+code: |
+  mytxt = "id,name\n1,Ada\n2,Woz"
+  list(DictReader(resp.text.splitlines(mytxt)))

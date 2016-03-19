@@ -1,0 +1,13 @@
+title: Get the width and height of an image file
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    Use the `size` attribute from a PIL.Image object
+  code: |
+    from PIL import Image
+    image = Image.open("cat-example.jpg")
+    image.size
+  stdout: |
+    (640, 543)
+

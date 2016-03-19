@@ -1,0 +1,11 @@
+title: Zero-pad a string
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    Use the string's `rjust()` method and provide `'0'` as its second argument.
+  code: |
+    "1042".rjust(6, '0')
+  stdout: |
+    '001042'
+

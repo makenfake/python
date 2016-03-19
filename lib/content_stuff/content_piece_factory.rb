@@ -1,4 +1,5 @@
 require "lib/content_stuff/snippet"
+require "lib/content_stuff/image_piece"
 
 module ContentStuff
   def ContentPieceFactory(obj)
@@ -6,6 +7,8 @@ module ContentStuff
       k = k.to_sym
       if k == :snippet
         Snippet.new(obj)
+      elsif k == :image
+        ImagePiece.new(obj)
       else
         ContentPiece.new(obj)
       end

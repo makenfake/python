@@ -19,7 +19,8 @@ module GeneralHelpers
 
     def markdownify(str = nil, &block)
       if str.nil? && !block_given?
-        raise StandardError, "Markdownify requires a string or a block"
+        return ""
+#        raise StandardError, "Markdownify requires a string or a block"
       elsif str.present? && block_given?
         raise StandardError, "Markdownify requires either string or a block, not both"
       end

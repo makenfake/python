@@ -1,0 +1,12 @@
+title: Visiting a webpage with a Selenium TK
+lede:
+  kind: snippet
+  lang: python
+  description: |
+    After initializing a WebDriver (such as `Firefox`), invoke its `get()` method and pass in a URL.
+  code: |
+    from selenium import webdriver
+    driver = webdriver.Firefox()
+    driver.get("http://www.python.org")
+
+

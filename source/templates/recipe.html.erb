@@ -11,10 +11,20 @@ layout: /layouts/default_page_layout
   </section>
 <% end %>
 
+<section class="content">
+  <section class="sec lede">
+  <% if recipe.lede.is_a?(Snippet) %>
+      <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
+  <% end %>
+  </section>
 
-<section class="sec lede">
+  <% recipe.content.each_with_index do |cpiece, idx| %>
+    <section class="sec">
+      <% if cpiece.is_a?(Snippet) %>
+          <%=partial 'layouts/content_pieces/snippet', locals: {snippet: cpiece} %>
+      <% end %>
+    </section>
 
-<% if recipe.lede.is_a?(Snippet) %>
-    <%=partial 'layouts/content_pieces/snippet', locals: {snippet: recipe.lede} %>
-<% end %>
+  <% end %>
 </section>
+

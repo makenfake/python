@@ -39,3 +39,6 @@ lede:
 
   notes:
     - "Even though this is a text file, we read it as a stream of bytes and save as bytes. When opening it later as a CSV, we can read it in as text"
+
+  references:
+    - url:

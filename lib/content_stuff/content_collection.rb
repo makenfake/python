@@ -6,7 +6,15 @@ module ContentStuff
     def initialize(obj)
       super(obj)
       @lede = ContentPieceFactory(obj.lede)
-#      puts("Lede is a: #{@lede.class}")
+      @_content = []
+      Array(obj.content).each do |c|
+        @_content << ContentPieceFactory(c)
+      end
+    end
+
+
+    def content
+      @_content
     end
   end
 end
